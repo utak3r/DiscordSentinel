@@ -1,0 +1,14 @@
+{
+  "name": "u3sentinel",
+  "version": "1.0.0",
+  "description": "Discord bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Piotr 'utak3r' Borys",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
