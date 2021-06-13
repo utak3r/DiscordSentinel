@@ -1,3 +1,10 @@
+/*
+    u3 Sentinel
+    Main module and entry point
+
+    Written in Node.js
+    Author: utak3r
+*/
 console.log('u3Sentinel bot');
 
 const config = require('./config.json');
@@ -13,6 +20,7 @@ client.commands = new Discord.Collection();
 const generalFuncs = require('./general.js');
 client.commands.set('hello', generalFuncs.hello);
 client.commands.set('server', generalFuncs.server);
+client.commands.set('socials', generalFuncs.socials);
 
 const moderatorFuncs = require('./moderator.js');
 client.commands.set('kick', moderatorFuncs.kick);
