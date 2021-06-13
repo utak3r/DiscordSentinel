@@ -1,6 +1,7 @@
 {
 	"prefix": "!",
-	"token": "BOT_TOKEN_STRING"
+	"token": "BOT_TOKEN_STRING",
+	"website": "http://your_page.com/",
 	"facebook": "https://www.facebook.com/",
 	"instagram": "https://www.instagram.com/",
 	"twitter": "https://twitter.com/"

@@ -22,6 +22,7 @@ function server(msg, args)
 function socials(msg, args)
 {
     var info = `utak3rowe sociale:\n`;
+    info += `Witryna WWW: ${config.website}\n`;
     info += `Facebook: ${config.facebook}\n`;
     info += `Instagram: ${config.instagram}\n`;
     info += `Twitter: ${config.twitter}`;
