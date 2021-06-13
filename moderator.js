@@ -91,8 +91,34 @@ function ban(msg, args)
     }
 }
 
+function censorMessage(msg)
+{
+    var words = msg.content.trim().split(/ +/);
+    var censoredMsg = "";
+    var censored = false;
+    if (words.length)
+    {
+        for(var i=0; i < words.length; i++)
+        {
+            if (words[i] != "dupa")
+                censoredMsg += words[i] + " ";
+            else
+            {
+                censored = true;
+                censoredMsg += '*** ';
+            }
+        }
+    }
+    if (censored)
+    {
+        msg.channel.send(`${msg.author} napisał:\n${censoredMsg}`)
+        msg.delete();
+    }
+}
+
 module.exports = 
 {
     kick,
-    ban
+    ban,
+    censorMessage
 };

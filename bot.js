@@ -49,19 +49,28 @@ function discordNewMember(member)
 client.on('message', discordGotMessage);
 function discordGotMessage(msg)
 {
-    if (!msg.content.startsWith(config.prefix) || msg.author.bot) return;
-
-    const args = msg.content.slice(config.prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
-
-    try
+    // Commands handling
+    if (!msg.author.bot && msg.content.startsWith(config.prefix))
     {
-        client.commands.get(command)(msg, args);
+        const args = msg.content.slice(config.prefix.length).trim().split(/ +/);
+        const command = args.shift().toLowerCase();
+        try
+        {
+            client.commands.get(command)(msg, args);
+        }
+        catch (error)
+        {
+            console.error(error);
+            msg.reply("Napotkałem błąd podczas wykonywania polecenia...")
+        }
     }
-    catch (error)
+    else
     {
-        console.error(error);
-        msg.reply("Napotkałem błąd podczas wykonywania polecenia...")
+        // reacting on all other messages
+        if (!msg.author.bot)
+        {
+            moderatorFuncs.censorMessage(msg);
+        }
     }
 
 }
